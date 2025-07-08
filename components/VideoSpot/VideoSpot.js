@@ -4,6 +4,8 @@ import styles from './VideoSpot.css.js';
 
 class VideoSpot extends Symbiote {
 
+  renderShadow = true;
+
   init() {
     // realtime video from webcam
     navigator.mediaDevices.getUserMedia(
@@ -27,6 +29,6 @@ class VideoSpot extends Symbiote {
 }
 
 VideoSpot.template = template;
-VideoSpot.shadowStyles = styles;
+VideoSpot.rootStyles = styles;
 
 VideoSpot.reg('video-spot');

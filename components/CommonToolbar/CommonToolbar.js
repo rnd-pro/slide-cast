@@ -40,6 +40,8 @@ mediaRecorder.onstop = () => {
 
 export class CommonToolbar extends Symbiote {
 
+  renderShadow = true;
+
   init$ = {
     onColorChange: (e) => {
       CommonToolbar.appCtx.drawColor = e.target.value;
@@ -70,6 +72,6 @@ export class CommonToolbar extends Symbiote {
 }
 
 CommonToolbar.template = template;
-CommonToolbar.shadowStyles = styles;
+CommonToolbar.rootStyles = styles;
 
 CommonToolbar.reg('common-toolbar');

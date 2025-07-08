@@ -5,6 +5,8 @@ import { CommonToolbar } from '../CommonToolbar/CommonToolbar.js';
 
 class SlideCom extends Symbiote {
 
+  renderShadow = true;
+
   static slideCount = 0;
 
   init$ = {
@@ -59,7 +61,7 @@ class SlideCom extends Symbiote {
   }
 
   #initDrawing() {
-    this.canvas = this.shadow.querySelector('canvas');
+    this.canvas = this.ref.canvas;
     this.ctx = this.canvas.getContext('2d');
     this.canvas.width = this.rect.width;
     this.canvas.height = this.rect.height;
@@ -81,9 +83,14 @@ class SlideCom extends Symbiote {
   renderCallback() {
 
     this.sub('importFrom', (val) => {
-      import(val).then((module) => {
-        this.innerHTML += module.default;
-      });
+      try {
+        console.log(import.meta.url);
+        import('../../' + val).then((module) => {
+          this.innerHTML += module.default;
+        });
+      } catch (e) {
+        console.error('Failed to import slide', val, e);
+      }
     });
 
     window.addEventListener('keydown', (e) => {
@@ -119,6 +126,6 @@ SlideCom.bindAttributes({
 });
 
 SlideCom.template = template;
-SlideCom.shadowStyles = styles;
+SlideCom.rootStyles = styles;
 
 SlideCom.reg('slide-com');

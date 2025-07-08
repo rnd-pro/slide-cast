@@ -1,19 +1,3 @@
-let btn = /*css*/ `
-display: inline-flex;
-align-items: center;
-justify-content: center;
-width: 40px;
-height: 40px;
-border-radius: 100%;
-border: none;
-margin: 0;
-cursor: pointer;
-background-color: rgba(255, 255, 255, 0.1);
-color: var(--clr-2);
-backdrop-filter: blur(10px);
-cursor: pointer;
-`;
-
 export default /*css*/ `
 ::-webkit-scrollbar {
   display: none;
