@@ -1,0 +1,19 @@
+{
+  "name": "slide-cast",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "author": "team@rnd-pro.com",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies": {
+    "@jam-do/jam-tools": "^0.2.6",
+    "@symbiotejs/symbiote": "^2.3.2"
+  }
+}
