@@ -1,5 +1,5 @@
 export default /*css*/ `
-slide-com {
+slide-it {
   display: block;
   position: relative;
   width: calc(100vw - var(--gap-max) * 2);

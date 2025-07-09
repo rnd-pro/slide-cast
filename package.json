@@ -1,19 +1,27 @@
 {
   "name": "slide-cast",
   "version": "0.0.1",
-  "description": "",
+  "description": "Web presentation tool with video recording included",
   "license": "MIT",
+  "access": "public",
   "author": "team@rnd-pro.com",
   "type": "module",
   "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
   "scripts": {
     "test": "test"
   },
   "dependencies": {
     "@jam-do/jam-tools": "^0.2.6",
     "@symbiotejs/symbiote": "^2.3.2"
-  }
+  },
+  "keywords": [
+    "presentation",
+    "video",
+    "recording",
+    "slides",
+    "slideshow",
+    "drawing",
+    "whiteboard",
+    "rnd-pro"
+  ]
 }

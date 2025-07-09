@@ -1,4 +1,4 @@
-import './components/SlideCom/SlideCom.js';
+import './components/SlideIt/SlideIt.js';
 import './components/VideoSpot/VideoSpot.js';
 import './components/CommonToolbar/CommonToolbar.js';
 import styles from './common-css/styles.css.js';

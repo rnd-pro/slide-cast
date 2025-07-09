@@ -1,9 +1,9 @@
 import Symbiote from '@symbiotejs/symbiote';
-import template from './SlideCom.html.js';
-import styles from './SlideCom.css.js';
+import template from './SlideIt.html.js';
+import styles from './SlideIt.css.js';
 import { CommonToolbar } from '../CommonToolbar/CommonToolbar.js';
 
-class SlideCom extends Symbiote {
+class SlideIt extends Symbiote {
 
   renderShadow = true;
 
@@ -11,21 +11,21 @@ class SlideCom extends Symbiote {
 
   init$ = {
     caption: this.getAttribute('caption'),
-    slideNumber: ++SlideCom.slideCount,
+    slideNumber: ++SlideIt.slideCount,
   }
 
   nextSlide() {
-    /** @type {SlideCom} */
+    /** @type {SlideIt} */
     let nextSlide = this.nextElementSibling;
-    if (nextSlide && nextSlide instanceof SlideCom) {
+    if (nextSlide && nextSlide instanceof SlideIt) {
       nextSlide.focus();
     }
   }
 
   prevSlide() {
-    /** @type {SlideCom} */
+    /** @type {SlideIt} */
     let prevSlide = this.previousElementSibling;
-    if (prevSlide && prevSlide instanceof SlideCom) {
+    if (prevSlide && prevSlide instanceof SlideIt) {
       prevSlide.focus();
     }
   }
@@ -120,12 +120,12 @@ class SlideCom extends Symbiote {
 
 }
 
-SlideCom.bindAttributes({
+SlideIt.bindAttributes({
   caption: 'caption',
   'import-from': 'importFrom',
 });
 
-SlideCom.template = template;
-SlideCom.rootStyles = styles;
+SlideIt.template = template;
+SlideIt.rootStyles = styles;
 
-SlideCom.reg('slide-com');
+SlideIt.reg('slide-it');
