@@ -2,6 +2,7 @@ import Symbiote from '@symbiotejs/symbiote';
 import template from './SlideIt.html.js';
 import styles from './SlideIt.css.js';
 import { CommonToolbar } from '../CommonToolbar/CommonToolbar.js';
+import { md2html } from '@jam-do/jam-tools/iso/md2html.js';
 
 class SlideIt extends Symbiote {
 
@@ -82,12 +83,33 @@ class SlideIt extends Symbiote {
 
   renderCallback() {
 
-    this.sub('importFrom', (val) => {
+    this.sub('importJSDWA', (val) => {
+      if (!val) {
+        return;
+      }
+      if (!val.includes('//')) {
+        if (val.startsWith('/')) {
+          val = window.location.origin + val;
+        } else {
+          val = window.location.origin + '/' + val;
+        }
+      }
       try {
-        console.log(import.meta.url);
-        import('../../' + val).then((module) => {
+        import(val).then((module) => {
           this.innerHTML += module.default;
         });
+      } catch (e) {
+        console.error('Failed to import slide', val, e);
+      }
+    });
+
+    this.sub('importMd', async (val) => {
+      if (!val) {
+        return;
+      }
+      try {
+        let md = await (await fetch(val)).text();
+        this.innerHTML += await md2html(md);
       } catch (e) {
         console.error('Failed to import slide', val, e);
       }
@@ -122,7 +144,8 @@ class SlideIt extends Symbiote {
 
 SlideIt.bindAttributes({
   caption: 'caption',
-  'import-from': 'importFrom',
+  'import-jsdwa': 'importJSDWA',
+  'import-md': 'importMd',
 });
 
 SlideIt.template = template;
