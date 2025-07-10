@@ -55,4 +55,11 @@ ul {
     }
   }
 }
+
+blockquote {
+  border-left: 4px solid rgba(255, 255, 255, 0.5);
+  padding: .7em;
+  margin-bottom: var(--gap-max);
+  background-color: rgba(255, 255, 255, 0.1);
+}
 `;

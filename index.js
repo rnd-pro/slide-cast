@@ -10,5 +10,5 @@ styleSheet.replaceSync(styles + hlCss);
 document.adoptedStyleSheets = [...document.adoptedStyleSheets, styleSheet];
 
 window.onload = () => {
-  document.querySelector('slide-com').focus();
+  document.querySelector('slide-it').focus();
 }
