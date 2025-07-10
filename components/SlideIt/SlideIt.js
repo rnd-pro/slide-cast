@@ -128,8 +128,6 @@ class SlideIt extends Symbiote {
       }
     });
 
-    this.#initDrawing();
-
     window.addEventListener('resize', (e) => {
       this.canvas.width = this.rect.width;
       this.canvas.height = this.rect.height;
@@ -137,6 +135,10 @@ class SlideIt extends Symbiote {
 
     this.addEventListener('click', (e) => {
       this.focus();
+    });
+
+    window.requestAnimationFrame(() => {
+      this.#initDrawing();
     });
   }
 
