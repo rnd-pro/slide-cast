@@ -48,6 +48,7 @@ export class CommonToolbar extends Symbiote {
   renderShadow = true;
 
   init$ = {
+    recIcon: '⏺︎',
     onColorChange: (e) => {
       CommonToolbar.appCtx.drawColor = e.target.value;
       this.style.setProperty('--clr-draw-current', CommonToolbar.appCtx.drawColor);
@@ -61,11 +62,14 @@ export class CommonToolbar extends Symbiote {
     onClear: () => {
       CommonToolbar.appCtx.currentSlide?.clearDrawing();
     },
-    onRecord: () => {
-      mediaRecorder.start();
-    },
-    onStop: () => {
-      mediaRecorder.stop();
+    onToggleRecorder: () => {
+      if (mediaRecorder.state === 'inactive') {
+        mediaRecorder.start();
+        this.$.recIcon = '⏹︎';
+      } else {
+        mediaRecorder.stop();
+        this.$.recIcon = '⏺︎';
+      }
     }
   }
 

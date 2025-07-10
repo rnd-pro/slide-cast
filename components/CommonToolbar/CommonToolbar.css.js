@@ -58,11 +58,7 @@ common-toolbar {
     ${btn}
   }
 
-  &::part(btn-record) {
-    ${btn}
-  }
-
-  &::part(btn-stop) {
+  &::part(btn-recorder) {
     ${btn}
   }
 }
