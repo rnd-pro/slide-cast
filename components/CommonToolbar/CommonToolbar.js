@@ -2,9 +2,9 @@ import Symbiote from '@symbiotejs/symbiote';
 import template from './CommonToolbar.html.js';
 import styles from './CommonToolbar.css.js';
 
-const stream = await navigator.mediaDevices.getDisplayMedia({
+const videoStream = await navigator.mediaDevices.getDisplayMedia({
   video: true,
-  audio: true,
+  audio: false,
   video: {
     width: 1920,
     height: 1080,
@@ -12,6 +12,11 @@ const stream = await navigator.mediaDevices.getDisplayMedia({
   selfBrowserSurface: 'include',
 });
 
+const audioStream = await navigator.mediaDevices.getUserMedia({
+  audio: true,
+});
+
+const stream = new MediaStream([...videoStream.getTracks(), ...audioStream.getTracks()]);
 const mediaRecorder = new MediaRecorder(stream);
 const recordedChunks = [];
 

@@ -11,7 +11,7 @@ class VideoSpot extends Symbiote {
     navigator.mediaDevices.getUserMedia(
       {
         video: true,
-        audio: true,
+        audio: false,
         video: {
           width: 1920,
           height: 1080,
