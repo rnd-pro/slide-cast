@@ -14,10 +14,10 @@ export class GroupFrom extends Symbiote {
       let fragment = document.createDocumentFragment();
 
       let sourceMd = await (await window.fetch(srcPath)).text();
-      console.log(sourceMd);
-      let slides = sourceMd.split('---');
+      let slides = sourceMd.split('---\n').map((slideTxt) => {
+        return slideTxt.trim();
+      });
       for (let slideContent of slides) {
-        slideContent = slideContent.trim();
         let slide = document.createElement('slide-it');
         if (slideContent.startsWith('##')) {
           let caption = slideContent.split('\n')[0].replace('##', '').trim();
