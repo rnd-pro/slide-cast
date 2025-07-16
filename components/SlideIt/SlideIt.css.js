@@ -10,7 +10,7 @@ slide-it {
   border-radius: var(--gap-max);
   counter-reset: slide-number;
   overflow: auto;
-  cursor: crosshair;
+  cursor: url(./cursor.png), crosshair;
 
   &::part(caption) {
     color: var(--clr-2);
@@ -33,6 +33,7 @@ slide-it {
   &::part(content) {
     color: var(--clr-2);
     padding: calc(var(--gap-max) * 2);
+    padding-top: 0;
     pointer-events: none;
   }
 

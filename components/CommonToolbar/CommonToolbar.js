@@ -17,7 +17,6 @@ export class CommonToolbar extends Symbiote {
       CommonToolbar.appCtx.currentSlide?.prevSlide();
     },
     onTop: () => {
-      // window.scrollTo({ top: 0, behavior: 'smooth' });
       let firstSlide = document.querySelector('slide-it');
       firstSlide?.focus();
     },
@@ -25,7 +24,6 @@ export class CommonToolbar extends Symbiote {
       CommonToolbar.appCtx.currentSlide?.nextSlide();
     },
     onBottom: () => {
-      // window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       let lastSlide = document.querySelector('slide-it:last-of-type');
       lastSlide?.focus();
     },

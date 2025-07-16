@@ -19,9 +19,9 @@ export class GroupFrom extends Symbiote {
       });
       for (let slideContent of slides) {
         let slide = document.createElement('slide-it');
-        if (slideContent.startsWith('##')) {
-          let caption = slideContent.split('\n')[0].replace('##', '').trim();
-          slideContent = slideContent.replace(caption, '').trim();
+        if (slideContent.startsWith('## ')) {
+          let caption = slideContent.split('\n')[0].replace('## ', '').trim();
+          slideContent = slideContent.replace('## ', '').replace(caption, '').trim();
           slide.setAttribute('caption', caption);
         }
         slide.innerHTML = await md2html(slideContent);
