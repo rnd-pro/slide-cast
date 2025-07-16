@@ -8,7 +8,7 @@ export class CommonToolbar extends Symbiote {
   renderShadow = true;
 
   init$ = {
-    recIcon: '⏺︎',
+    recIcon: 'R',
     onColorChange: (e) => {
       CommonToolbar.appCtx.drawColor = e.target.value;
       this.style.setProperty('--clr-draw-current', CommonToolbar.appCtx.drawColor);
@@ -16,8 +16,18 @@ export class CommonToolbar extends Symbiote {
     onPrev: () => {
       CommonToolbar.appCtx.currentSlide?.prevSlide();
     },
+    onTop: () => {
+      // window.scrollTo({ top: 0, behavior: 'smooth' });
+      let firstSlide = document.querySelector('slide-it');
+      firstSlide?.focus();
+    },
     onNext: () => {
       CommonToolbar.appCtx.currentSlide?.nextSlide();
+    },
+    onBottom: () => {
+      // window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      let lastSlide = document.querySelector('slide-it:last-of-type');
+      lastSlide?.focus();
     },
     onClear: () => {
       CommonToolbar.appCtx.currentSlide?.clearDrawing();
@@ -25,10 +35,10 @@ export class CommonToolbar extends Symbiote {
     onToggleRecorder: () => {
       if (Recorder.active) {
         Recorder.stop();
-        this.$.recIcon = '⏺︎';
+        this.$.recIcon = 'R';
       } else {
         Recorder.start();
-        this.$.recIcon = '⏹︎';
+        this.$.recIcon = 'S';
       }
     }
   }

@@ -5,8 +5,8 @@ export default html`
   <input ${{onchange: 'onColorChange'}} type="color" part="color-picker-input" value="#ffffff">
   <div part="color-picker-preview"></div>
 </label>
-<button ${{onclick: 'onPrev'}} part="btn-prev">&uarr;</button>
-<button ${{onclick: 'onNext'}} part="btn-next">&darr;</button>
-<button ${{onclick: 'onClear'}} part="btn-clear">х</button>
+<button ${{onclick: 'onPrev', ondblclick: 'onTop'}} part="btn-prev">&uarr;</button>
+<button ${{onclick: 'onNext', ondblclick: 'onBottom'}} part="btn-next">&darr;</button>
+<button ${{onclick: 'onClear'}} part="btn-clear">X</button>
 <button ${{onclick: 'onToggleRecorder'}} part="btn-recorder">{{recIcon}}</button>
 `;
