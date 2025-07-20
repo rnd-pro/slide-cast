@@ -106,6 +106,7 @@ table {
     padding: 1em;
     background-color: var(--slide-accent-clr, rgba(255, 255, 255, 0.1));
     border-radius: var(--gap-max);
+    transition: background-color 1s;
   }
 
 } 
