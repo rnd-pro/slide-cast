@@ -11,11 +11,8 @@ export default /*css*/ `
   --gap-mid: 10px;
   --gap-max: 20px;
 
-  font-family: sans-serif;
-  font-size: 32px;
-  line-height: 1.5;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
+  --bg-accent-grad: linear-gradient(135deg,rgb(163, 111, 111),rgb(93, 114, 159));
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -31,10 +28,16 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 
-  color: var(--clr-1);
+  font-family: sans-serif;
+  font-size: 32px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+
+  color: var(--clr-2);
   background-color: #3e3e3e;
   background-size: 100% 100vh;
-  background: linear-gradient(135deg,rgb(163, 111, 111),rgb(93, 114, 159));
+  background: var(--bg-accent-grad);
   background-attachment: fixed;
 }
 
@@ -62,4 +65,26 @@ blockquote {
   margin-bottom: var(--gap-max);
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+table {
+  border-collapse: separate;
+  border-spacing: 4px;
+  width: 100%;
+  margin-bottom: var(--gap-max);
+  font-size: 32px;
+  table-layout: fixed;
+
+  th {
+    padding: 1em;
+    color: var(--clr-2);
+  }
+
+  td {
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.1);
+    background: var(--bg-accent-grad);
+    border-radius: var(--gap-max);
+  }
+
+} 
 `;
