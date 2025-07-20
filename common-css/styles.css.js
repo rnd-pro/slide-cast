@@ -57,8 +57,8 @@ body {
   text-rendering: optimizeLegibility;
   color: var(--clr-2);
   background-color: #3e3e3e;
-  transition: --grad-clr-1 1s, --grad-clr-2 1s;
   background: linear-gradient(135deg, var(--grad-clr-1), var(--grad-clr-2));
+  transition: --grad-clr-1 .4s, --grad-clr-2 .4s;
   background-size: 100% 100vh;
   background-attachment: fixed;
 }
