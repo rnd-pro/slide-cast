@@ -83,10 +83,14 @@ ul {
 }
 
 blockquote {
-  border-left: 4px solid rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  border-left: 6px solid var(--slide-accent-clr, rgba(255, 255, 255, 0.5));
   padding: .7em;
   margin-bottom: var(--gap-max);
   background-color: rgba(255, 255, 255, 0.1);
+  border-top-right-radius: var(--gap-max);
+  border-bottom-right-radius: var(--gap-max);
+  min-width: 60%;
 }
 
 table {
