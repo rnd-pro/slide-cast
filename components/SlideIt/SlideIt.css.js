@@ -4,7 +4,7 @@ slide-it {
   position: relative;
   width: calc(100vw - var(--gap-max) * 2);
   height: calc(100vh - var(--gap-max) * 2);
-  background-color: rgba(0, 0, 0, .95);
+  background-color: rgba(0, 0, 0, .92);
   color: var(--clr-2);
   margin: var(--gap-max);
   border-radius: var(--gap-max);

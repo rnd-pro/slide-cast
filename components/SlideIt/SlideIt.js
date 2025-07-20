@@ -42,6 +42,7 @@ class SlideIt extends Symbiote {
     document.body.style.setProperty('--grad-clr-1', this.gradClr1);
     document.body.style.setProperty('--grad-clr-2', this.gradClr2);
     document.body.style.setProperty('--slide-accent-clr', this.gradClr1);
+    document.body.style.setProperty('--slide-sub-clr', this.gradClr2);
   }
 
   get canvasRect() {
