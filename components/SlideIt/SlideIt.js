@@ -41,7 +41,7 @@ class SlideIt extends Symbiote {
     CommonToolbar.appCtx.currentSlide = this;
     document.body.style.setProperty('--grad-clr-1', this.gradClr1);
     document.body.style.setProperty('--grad-clr-2', this.gradClr2);
-    this.style.setProperty('--slide-accent-clr', randClr(1));
+    this.style.setProperty('--slide-accent-clr', this.gradClr1);
   }
 
   get canvasRect() {
