@@ -3,10 +3,14 @@ import template from './SlideIt.html.js';
 import styles from './SlideIt.css.js';
 import { CommonToolbar } from '../CommonToolbar/CommonToolbar.js';
 import { md2html } from '@jam-do/jam-tools/iso/md2html.js';
+import { randClr } from '../../common-css/styles.css.js';
 
 class SlideIt extends Symbiote {
 
   renderShadow = true;
+
+  gradClr1 = randClr();
+  gradClr2 = randClr();
 
   static slideCount = 0;
 
@@ -35,6 +39,9 @@ class SlideIt extends Symbiote {
     super.focus();
     this.scrollIntoView({ behavior: 'smooth', block: 'center' });
     CommonToolbar.appCtx.currentSlide = this;
+    document.body.style.setProperty('--grad-clr-1', this.gradClr1);
+    document.body.style.setProperty('--grad-clr-2', this.gradClr2);
+    this.style.setProperty('--slide-accent-clr', randClr(1));
   }
 
   get canvasRect() {

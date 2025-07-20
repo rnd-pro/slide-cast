@@ -12,6 +12,7 @@ background-color: rgba(255, 255, 255, 0.1);
 color: var(--clr-2);
 backdrop-filter: blur(10px);
 cursor: pointer;
+outline: none;
 `;
 
 export default /*css*/ `

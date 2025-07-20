@@ -1,6 +1,28 @@
+let h = Math.floor(Math.random() * 121);
+
+/**
+ * @param {number} [opacity]
+ * @returns {string}
+ */
+export function randClr(opacity = 1) {
+  return `hsla(${h += 51}deg, 50%, 50%, ${opacity})`;
+}
+
 export default /*css*/ `
 ::-webkit-scrollbar {
   display: none;
+}
+
+@property --grad-clr-1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: ${randClr()};
+}
+
+@property --grad-clr-2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: ${randClr()};
 }
 
 :root {
@@ -10,8 +32,6 @@ export default /*css*/ `
   --gap-min: 2px;
   --gap-mid: 10px;
   --gap-max: 20px;
-
-  --bg-accent-grad: linear-gradient(135deg,rgb(163, 111, 111),rgb(93, 114, 159));
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -27,17 +47,19 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
+body {
   font-family: sans-serif;
   font-size: 32px;
   line-height: 1.5;
   font-weight: 400;
   text-rendering: optimizeLegibility;
-
   color: var(--clr-2);
   background-color: #3e3e3e;
+  transition: --grad-clr-1 1s, --grad-clr-2 1s;
+  background: linear-gradient(135deg, var(--grad-clr-1), var(--grad-clr-2));
   background-size: 100% 100vh;
-  background: var(--bg-accent-grad);
   background-attachment: fixed;
 }
 
@@ -54,7 +76,8 @@ ul {
     &::before {
       content: '>';
       margin-right: 0.5em;
-      color: rgba(255, 255, 255, 1);
+      color: var(--slide-accent-clr, currentColor);
+      transition: color 1s;
     }
   }
 }
@@ -82,7 +105,7 @@ table {
   td {
     padding: 1em;
     background-color: rgba(255, 255, 255, 0.1);
-    background: var(--bg-accent-grad);
+    background: linear-gradient(135deg, ${randClr(0.4)}, ${randClr(0.3)});
     border-radius: var(--gap-max);
   }
 
