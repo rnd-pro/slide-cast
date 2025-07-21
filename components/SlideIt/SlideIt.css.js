@@ -8,7 +8,6 @@ slide-it {
   color: var(--clr-2);
   margin: var(--gap-max);
   border-radius: var(--gap-max);
-  counter-reset: slide-number;
   overflow: auto;
   cursor: url(./cursor.png), crosshair;
 
@@ -18,16 +17,6 @@ slide-it {
     padding: 0;
     padding: calc(var(--gap-max) * 2);
     pointer-events: none;
-    counter-increment: slide-number;
-
-    &::before {
-      content: counter(slide-number);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
   }
 
   &::part(content) {

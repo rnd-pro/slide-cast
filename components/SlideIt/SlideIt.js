@@ -15,8 +15,8 @@ class SlideIt extends Symbiote {
   static slideCount = 0;
 
   init$ = {
-    caption: this.getAttribute('caption'),
-    slideNumber: ++SlideIt.slideCount,
+    caption: '',
+    heading: '',
   }
 
   nextSlide() {
@@ -90,7 +90,11 @@ class SlideIt extends Symbiote {
   }
 
   renderCallback() {
-
+    this.sub('caption', (val) => {
+      if (val) {
+        this.$.heading = `${++SlideIt.slideCount}. ${val}`;
+      }
+    });
     this.sub('importJSDWA', (val) => {
       if (!val) {
         return;

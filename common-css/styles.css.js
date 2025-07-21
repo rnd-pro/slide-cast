@@ -63,6 +63,14 @@ body {
   background-attachment: fixed;
 }
 
+h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 4em);
+}
+
 ul {
   list-style: none;
   margin-left: 0;
