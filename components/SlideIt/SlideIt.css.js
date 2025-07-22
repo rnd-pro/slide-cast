@@ -10,6 +10,7 @@ slide-it {
   border-radius: var(--gap-max);
   overflow: auto;
   cursor: url(./cursor.png), crosshair;
+  outline: none;
 
   &::part(caption) {
     color: var(--clr-2);

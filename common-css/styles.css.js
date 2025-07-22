@@ -121,5 +121,17 @@ table {
     transition: background-color 1s;
   }
 
-} 
+}
+
+img[slide-background] {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
 `;
