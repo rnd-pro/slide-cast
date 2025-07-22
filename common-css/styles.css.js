@@ -123,15 +123,14 @@ table {
 
 }
 
-img[slide-background] {
+img[pre-drawing] {
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
   pointer-events: none;
 }
 `;

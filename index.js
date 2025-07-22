@@ -10,7 +10,7 @@ styleSheet.replaceSync(styles + hlCss);
 document.adoptedStyleSheets = [...document.adoptedStyleSheets, styleSheet];
 
 window.onload = async () => {
-  window.requestAnimationFrame(() => {
+  window.requestIdleCallback(() => {
     let slideIt = document.querySelector('slide-it');
     if (slideIt) {
       slideIt.focus();

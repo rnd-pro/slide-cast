@@ -12,11 +12,9 @@ class SlideIt extends Symbiote {
   gradClr1 = randClr();
   gradClr2 = randClr();
 
-  static slideCount = 0;
-
   init$ = {
     caption: '',
-    heading: '',
+    number: '',
   }
 
   nextSlide() {
@@ -90,11 +88,6 @@ class SlideIt extends Symbiote {
   }
 
   renderCallback() {
-    this.sub('caption', (val) => {
-      if (val) {
-        this.$.heading = `${++SlideIt.slideCount}. ${val}`;
-      }
-    });
     this.sub('importJSDWA', (val) => {
       if (!val) {
         return;
@@ -152,12 +145,20 @@ class SlideIt extends Symbiote {
     window.requestAnimationFrame(() => {
       this.#initDrawing();
     });
+
+    if (!this.hasAttribute('slide-number') && this.$.caption) {
+      window.requestIdleCallback(() => {
+        let idx = [...document.querySelectorAll('slide-it:not([slide-number])')].indexOf(this);
+        this.$.number = (idx + 1) + '. ';
+      });
+    }
   }
 
 }
 
 SlideIt.bindAttributes({
   caption: 'caption',
+  'slide-number': 'number',
   'import-jsdwa': 'importJSDWA',
   'import-md': 'importMd',
 });
