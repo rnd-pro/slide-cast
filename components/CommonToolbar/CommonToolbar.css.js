@@ -59,6 +59,10 @@ common-toolbar {
     ${btn}
   }
 
+  &::part(btn-erase) {
+    ${btn}
+  }
+
   &::part(btn-recorder) {
     ${btn}
   }

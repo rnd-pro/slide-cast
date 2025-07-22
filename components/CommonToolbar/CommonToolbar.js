@@ -9,6 +9,7 @@ export class CommonToolbar extends Symbiote {
 
   init$ = {
     recIcon: 'R',
+    eraseIcon: 'x',
     onColorChange: (e) => {
       CommonToolbar.appCtx.drawColor = e.target.value;
       this.style.setProperty('--clr-draw-current', CommonToolbar.appCtx.drawColor);
@@ -27,6 +28,10 @@ export class CommonToolbar extends Symbiote {
       let lastSlide = document.querySelector('slide-it:last-of-type');
       lastSlide?.focus();
     },
+    onErase: () => {
+      CommonToolbar.appCtx.eraseMode = !CommonToolbar.appCtx.eraseMode;
+      this.$.eraseIcon = CommonToolbar.appCtx.eraseMode ? '>' : 'x';
+    },
     onClear: () => {
       CommonToolbar.appCtx.currentSlide?.clearDrawing();
     },
@@ -43,6 +48,7 @@ export class CommonToolbar extends Symbiote {
 
   static appCtx = {
     drawColor: '#ffffff',
+    eraseMode: false,
     currentSlide: null,
   }
 

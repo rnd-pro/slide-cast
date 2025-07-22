@@ -60,7 +60,8 @@ class SlideIt extends Symbiote {
     this.ctx.moveTo(this.x || x, this.y || y);
     this.ctx.lineTo(x, y);
     this.ctx.strokeStyle = CommonToolbar.appCtx.drawColor;
-    this.ctx.lineWidth = 5;
+    this.ctx.lineWidth = CommonToolbar.appCtx.eraseMode ? 10 : 5;
+    this.ctx.globalCompositeOperation = CommonToolbar.appCtx.eraseMode ? 'destination-out' : 'source-over';
     this.ctx.stroke();
     
     this.x = x;
