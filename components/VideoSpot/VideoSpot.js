@@ -24,6 +24,13 @@ class VideoSpot extends Symbiote {
 
   renderCallback() {
     this.init();
+
+    window.requestIdleCallback(() => {
+      this.sub('APP/hideVideoSpot', (val) => {
+        val ? (this.style.opacity = 0) : (this.style.opacity = 1);
+      });
+    });
+
   }
 
 }

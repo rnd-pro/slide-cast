@@ -11,29 +11,29 @@ export class CommonToolbar extends Symbiote {
     recIcon: 'R',
     eraseIcon: 'x',
     onColorChange: (e) => {
-      CommonToolbar.appCtx.drawColor = e.target.value;
-      this.style.setProperty('--clr-draw-current', CommonToolbar.appCtx.drawColor);
+      this.$['APP/drawColor'] = e.target.value;
+      this.style.setProperty('--clr-draw-current', e.target.value);
     },
     onPrev: () => {
-      CommonToolbar.appCtx.currentSlide?.prevSlide();
+      this.$['APP/currentSlide']?.prevSlide();
     },
     onTop: () => {
       let firstSlide = document.querySelector('slide-it');
       firstSlide?.focus();
     },
     onNext: () => {
-      CommonToolbar.appCtx.currentSlide?.nextSlide();
+      this.$['APP/currentSlide']?.nextSlide();
     },
     onBottom: () => {
       let lastSlide = document.querySelector('slide-it:last-of-type');
       lastSlide?.focus();
     },
     onErase: () => {
-      CommonToolbar.appCtx.eraseMode = !CommonToolbar.appCtx.eraseMode;
-      this.$.eraseIcon = CommonToolbar.appCtx.eraseMode ? '>' : 'x';
+      this.$['APP/eraseMode'] = !this.$['APP/eraseMode'];
+      this.$.eraseIcon = this.$['APP/eraseMode'] ? '>' : 'x';
     },
     onClear: () => {
-      CommonToolbar.appCtx.currentSlide?.clearDrawing();
+      this.$['APP/currentSlide']?.clearDrawing();
     },
     onToggleRecorder: () => {
       if (Recorder.active) {
@@ -44,12 +44,6 @@ export class CommonToolbar extends Symbiote {
         this.$.recIcon = 'S';
       }
     }
-  }
-
-  static appCtx = {
-    drawColor: '#ffffff',
-    eraseMode: false,
-    currentSlide: null,
   }
 
 }

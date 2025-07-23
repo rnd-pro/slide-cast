@@ -1,14 +1,17 @@
 import Symbiote from '@symbiotejs/symbiote';
 import template from './SlideIt.html.js';
 import styles from './SlideIt.css.js';
-import { CommonToolbar } from '../CommonToolbar/CommonToolbar.js';
 import { md2html } from '@jam-do/jam-tools/iso/md2html.js';
 import { randClr } from '../../common-css/styles.css.js';
+import { PubSub } from '@symbiotejs/symbiote';
 
 const intObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.focus();
+      let appData = PubSub.getCtx('APP');
+      if (appData.read('currentSlide') !== entry.target) {
+        entry.target.focus();
+      }
     }
   });
 }, {
@@ -55,13 +58,14 @@ class SlideIt extends Symbiote {
   }
 
   focus() {
-    super.focus();
+    // super.focus();
+    this.$['APP/currentSlide'] = this;
     this.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    CommonToolbar.appCtx.currentSlide = this;
     document.body.style.setProperty('--grad-clr-1', this.gradClr1);
     document.body.style.setProperty('--grad-clr-2', this.gradClr2);
     document.body.style.setProperty('--slide-accent-clr', this.gradClr1);
     document.body.style.setProperty('--slide-sub-clr', this.gradClr2);
+    this.$['APP/hideVideoSpot'] = this.hasAttribute('hide-video-spot');
   }
 
   get canvasRect() {
@@ -80,9 +84,9 @@ class SlideIt extends Symbiote {
     this.ctx.beginPath();
     this.ctx.moveTo(this.x || x, this.y || y);
     this.ctx.lineTo(x, y);
-    this.ctx.strokeStyle = CommonToolbar.appCtx.drawColor;
-    this.ctx.lineWidth = CommonToolbar.appCtx.eraseMode ? 10 : 5;
-    this.ctx.globalCompositeOperation = CommonToolbar.appCtx.eraseMode ? 'destination-out' : 'source-over';
+    this.ctx.strokeStyle = this.$['APP/drawColor'];
+    this.ctx.lineWidth = this.$['APP/eraseMode'] ? 10 : 5;
+    this.ctx.globalCompositeOperation = this.$['APP/eraseMode'] ? 'destination-out' : 'source-over';
     this.ctx.stroke();
     
     this.x = x;
@@ -143,7 +147,7 @@ class SlideIt extends Symbiote {
     });
 
     window.addEventListener('keydown', (e) => {
-      if (CommonToolbar.appCtx.currentSlide !== this) return;
+      if (this.$['APP/currentSlide'] !== this) return;
 
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         e.preventDefault();

@@ -10,7 +10,7 @@ video-spot {
   border-radius: 100%;
   overflow: hidden;
   border: 6px solid var(--slide-sub-clr, var(--clr-2));
-  transition: border-color 1s;
+  transition: border-color 1s, opacity 1s;
   pointer-events: none;
 
   &::part(video) {

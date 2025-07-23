@@ -97,6 +97,7 @@ Creates individual slides in your presentation.
 - `import-md` - Path to a Markdown file containing slide content
 - `import-jsdwa` - Path to a JavaScript module exporting slide content
 - `slide-number` - Manual slide number setting (can be empty)
+- `hide-video-spot` - Hides Video Spot circle when certain slide is in focus
 
 **Inline Content:**
 ```html
