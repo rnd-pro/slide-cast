@@ -90,6 +90,27 @@ ul {
   }
 }
 
+ol {
+  list-style: none;
+  margin-left: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  counter-reset: list-item;
+
+  li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    counter-increment: list-item;
+
+    &::before {
+      content: counter(list-item);
+      margin-right: 0.5em;
+      color: var(--slide-accent-clr, currentColor);
+      transition: color 1s;
+    }
+  }
+}
+
 blockquote {
   display: inline-block;
   border-left: 6px solid var(--slide-accent-clr, rgba(255, 255, 255, 0.5));

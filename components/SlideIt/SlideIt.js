@@ -5,6 +5,27 @@ import { CommonToolbar } from '../CommonToolbar/CommonToolbar.js';
 import { md2html } from '@jam-do/jam-tools/iso/md2html.js';
 import { randClr } from '../../common-css/styles.css.js';
 
+const intObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.focus();
+    }
+  });
+}, {
+  rootMargin: '0px',
+  threshold: 0.2,
+});
+
+window.addEventListener('scroll', (e) => {
+  let targets = document.querySelectorAll('slide-it');
+  intObserver.disconnect();
+  window.setTimeout(() => {
+    targets.forEach((target) => {
+      intObserver.observe(target);
+    });
+  }, 200);
+});
+
 class SlideIt extends Symbiote {
 
   renderShadow = true;
@@ -153,6 +174,13 @@ class SlideIt extends Symbiote {
         this.$.number = (idx + 1) + '. ';
       });
     }
+
+    intObserver.observe(this);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    intObserver.unobserve(this);
   }
 
 }
