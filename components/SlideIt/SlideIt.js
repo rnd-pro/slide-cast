@@ -77,6 +77,9 @@ class SlideIt extends Symbiote {
   }
 
   #draw(e) {
+    if (e.touches) {
+      e = e.touches[0];
+    }
     // draw line to the current mouse position
     let x = e.clientX - this.canvasRect.left;
     let y = e.clientY - this.canvasRect.y;
@@ -103,6 +106,32 @@ class SlideIt extends Symbiote {
       this.canvas.addEventListener('mousemove', draw);
     });
     this.canvas.addEventListener('mouseup', () => {
+      this.canvas.removeEventListener('mousemove', draw);
+      this.x = null;
+      this.y = null;
+    });
+    this.canvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      this.canvas.addEventListener('touchmove', draw);
+    });
+    this.canvas.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      this.canvas.removeEventListener('touchmove', draw);
+      this.x = null;
+      this.y = null;
+    });
+    this.canvas.addEventListener('touchcancel', (e) => {
+      e.preventDefault();
+      this.canvas.removeEventListener('touchmove', draw);
+      this.x = null;
+      this.y = null;
+    });
+    this.canvas.addEventListener('mouseleave', (e) => {
+      this.canvas.removeEventListener('mousemove', draw);
+      this.x = null;
+      this.y = null;
+    });
+    this.canvas.addEventListener('contextmenu', (e) => {
       this.canvas.removeEventListener('mousemove', draw);
       this.x = null;
       this.y = null;
