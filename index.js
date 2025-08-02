@@ -18,6 +18,15 @@ PubSub.registerCtx({
 }, 'APP');
 
 window.onload = async () => {
+  let customStyles = document.querySelector('style');
+  if (customStyles) {
+    let css = customStyles.textContent;
+    if (css) {
+      let customStyleSheet = new CSSStyleSheet();
+      customStyleSheet.replaceSync(css);
+      document.adoptedStyleSheets = [...document.adoptedStyleSheets, customStyleSheet];
+    }
+  }
   window.requestIdleCallback(() => {
     let slideIt = document.querySelector('slide-it');
     if (slideIt) {

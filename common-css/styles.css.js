@@ -26,7 +26,7 @@ export default /*css*/ `
 }
 
 :root {
-  --clr-1: #000;
+  --clr-1: rgba(0, 0, 0, .92);
   --clr-2: #fff;
 
   --gap-min: 2px;
@@ -115,11 +115,20 @@ blockquote {
   display: inline-block;
   border-left: 6px solid var(--slide-accent-clr, rgba(255, 255, 255, 0.5));
   padding: .7em;
+  margin-top: var(--gap-max);
   margin-bottom: var(--gap-max);
   background-color: rgba(255, 255, 255, 0.1);
   border-top-right-radius: var(--gap-max);
   border-bottom-right-radius: var(--gap-max);
   min-width: 60%;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 table {
@@ -153,5 +162,9 @@ img[pre-drawing] {
   top: 0;
   left: 0;
   pointer-events: none;
+}
+
+a {
+  color: currentColor;
 }
 `;

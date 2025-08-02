@@ -4,6 +4,8 @@
 
 SlideCast is a modern web presentation tool that lets you build beautiful slideshows while recording yourself presenting. Perfect for content creators, educators, and anyone who wants to make engaging video presentations.
 
+Live example: https://rnd-pro.com/presentations/slide-cast/
+
 ## ✨ What Can You Do?
 
 - 📽️ **Interactive Slideshows** - Build dynamic presentations with ease
@@ -133,6 +135,23 @@ Want to prepare some drawings beforehand? You can create slide artwork and save 
 ```
 
 Just draw on your slide, right-click to save the image, and reference it with the `pre-drawing` attribute!
+
+## Styling
+
+Use regular CSS to customize application elements:
+
+```html
+<style>
+  :root {
+    --clr-1: #899abc;
+    --clr-2: #000;
+  }
+  slide-it {
+    border-radius: 2px;
+  }
+  /* etc... */
+</style>
+```
 
 ## 📄 License
 
