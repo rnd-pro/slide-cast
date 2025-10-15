@@ -63,6 +63,10 @@ common-toolbar {
     ${btn}
   }
 
+  &::part(btn-fs) {
+    ${btn}
+  }
+
   &::part(btn-recorder) {
     ${btn}
   }

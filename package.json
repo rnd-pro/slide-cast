@@ -1,6 +1,6 @@
 {
   "name": "slide-cast",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "Web presentation tool with video recording included",
   "license": "MIT",
   "access": "public",
@@ -15,8 +15,8 @@
     "test": "test"
   },
   "dependencies": {
-    "@jam-do/jam-tools": "^0.2.6",
-    "@symbiotejs/symbiote": "^2.3.2"
+    "@symbiotejs/symbiote": "^2.3.2",
+    "jsda-kit": "^0.3.6"
   },
   "keywords": [
     "presentation",

@@ -1,7 +1,7 @@
 import Symbiote from '@symbiotejs/symbiote';
 import template from './SlideIt.html.js';
 import styles from './SlideIt.css.js';
-import { md2html } from '@jam-do/jam-tools/iso/md2html.js';
+import { md2html } from 'jsda-kit/iso/md2html.js';
 import { randClr } from '../../common-css/styles.css.js';
 import { PubSub } from '@symbiotejs/symbiote';
 

@@ -1,5 +1,5 @@
 import Symbiote from '@symbiotejs/symbiote';
-import { md2html } from '@jam-do/jam-tools/iso/md2html.js';
+import { md2html } from 'jsda-kit/iso/md2html.js';
 
 export class GroupFrom extends Symbiote {
   init$ = {

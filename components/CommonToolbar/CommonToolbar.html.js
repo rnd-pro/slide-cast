@@ -9,5 +9,6 @@ export default html`
 <button ${{onclick: 'onClear'}} part="btn-clear">X</button>
 <button ${{onclick: 'onPrev', ondblclick: 'onTop'}} part="btn-prev">&uarr;</button>
 <button ${{onclick: 'onNext', ondblclick: 'onBottom'}} part="btn-next">&darr;</button>
+<button ${{onclick: 'onFs'}} part="btn-fs">F</button>
 <button ${{onclick: 'onToggleRecorder'}} part="btn-recorder">{{recIcon}}</button>
 `;

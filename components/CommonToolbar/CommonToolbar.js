@@ -35,6 +35,15 @@ export class CommonToolbar extends Symbiote {
     onClear: () => {
       this.$['APP/currentSlide']?.clearDrawing();
     },
+    onFs: () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    },
     onToggleRecorder: () => {
       if (Recorder.active) {
         Recorder.stop();
