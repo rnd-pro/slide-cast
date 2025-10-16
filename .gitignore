@@ -1,6 +1,7 @@
 ## editors
 /.idea
 /.vscode
+/.agicoder
 
 ## system files
 .DS_Store
