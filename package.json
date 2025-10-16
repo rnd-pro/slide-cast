@@ -1,6 +1,6 @@
 {
   "name": "slide-cast",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "Web presentation tool with video recording included",
   "license": "MIT",
   "access": "public",
