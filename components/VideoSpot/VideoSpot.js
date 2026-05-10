@@ -10,7 +10,6 @@ class VideoSpot extends Symbiote {
     // realtime video from webcam
     navigator.mediaDevices.getUserMedia(
       {
-        video: true,
         audio: false,
         video: {
           width: 1920,
@@ -27,7 +26,7 @@ class VideoSpot extends Symbiote {
 
     window.requestIdleCallback(() => {
       this.sub('APP/hideVideoSpot', (val) => {
-        val ? (this.style.opacity = 0) : (this.style.opacity = 1);
+        val ? (this.style.opacity = '0') : (this.style.opacity = '1');
       });
     });
 

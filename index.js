@@ -32,7 +32,7 @@ window.onload = async () => {
     }
   }
   window.requestIdleCallback(() => {
-    let slideIt = document.querySelector('slide-it');
+    let slideIt = /** @type {HTMLElement} */ (document.querySelector('slide-it'));
     if (slideIt) {
       slideIt.focus();
     }

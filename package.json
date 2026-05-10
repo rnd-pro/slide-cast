@@ -12,7 +12,7 @@
     "url": "https://github.com/rnd-pro/slide-cast.git"
   },
   "scripts": {
-    "test": "test"
+    "types": "npx tsc --noEmit"
   },
   "dependencies": {
     "jsda-kit": "^1.5.2"
@@ -26,5 +26,8 @@
     "drawing",
     "whiteboard",
     "rnd-pro"
-  ]
+  ],
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
 }

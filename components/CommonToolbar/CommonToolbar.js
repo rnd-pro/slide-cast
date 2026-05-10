@@ -10,7 +10,7 @@ export class CommonToolbar extends Symbiote {
   init$ = {
     recIcon: '',
     eraseIcon: '',
-    onColorChange: (e) => {
+    onColorChange: (/** @type {Event & {target: HTMLInputElement}} */ e) => {
       this.$['APP/drawColor'] = e.target.value;
       this.style.setProperty('--clr-draw-current', e.target.value);
     },
@@ -18,14 +18,14 @@ export class CommonToolbar extends Symbiote {
       this.$['APP/currentSlide']?.prevSlide();
     },
     onTop: () => {
-      let firstSlide = document.querySelector('slide-it');
+      let firstSlide = /** @type {HTMLElement} */ (document.querySelector('slide-it'));
       firstSlide?.focus();
     },
     onNext: () => {
       this.$['APP/currentSlide']?.nextSlide();
     },
     onBottom: () => {
-      let lastSlide = document.querySelector('slide-it:last-of-type');
+      let lastSlide = /** @type {HTMLElement} */ (document.querySelector('slide-it:last-of-type'));
       lastSlide?.focus();
     },
     onErase: () => {

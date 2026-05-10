@@ -10,7 +10,7 @@ const intObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       let appData = PubSub.getCtx('APP');
       if (appData.read('currentSlide') !== entry.target) {
-        entry.target.focus();
+        /** @type {HTMLElement} */ (entry.target).focus();
       }
     }
   });
@@ -42,7 +42,6 @@ class SlideIt extends Symbiote {
   }
 
   nextSlide() {
-    /** @type {SlideIt} */
     let nextSlide = this.nextElementSibling;
     if (nextSlide && nextSlide instanceof SlideIt) {
       nextSlide.focus();
@@ -50,7 +49,6 @@ class SlideIt extends Symbiote {
   }
 
   prevSlide() {
-    /** @type {SlideIt} */
     let prevSlide = this.previousElementSibling;
     if (prevSlide && prevSlide instanceof SlideIt) {
       prevSlide.focus();

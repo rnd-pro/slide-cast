@@ -2,7 +2,7 @@ import names from './collection.js';
 
 /**
  * 
- * @param {keyof names} name 
+ * @param {keyof typeof names} name 
  * @returns 
  */
 export function i(name) {
