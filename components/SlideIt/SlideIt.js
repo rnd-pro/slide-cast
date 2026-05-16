@@ -141,7 +141,7 @@ class SlideIt extends Symbiote {
   }
 
   renderCallback() {
-    this.sub('importJSDWA', (val) => {
+    this.sub('importJSDA', (val) => {
       if (!val) {
         return;
       }
@@ -219,7 +219,7 @@ class SlideIt extends Symbiote {
 SlideIt.bindAttributes({
   caption: 'caption',
   'slide-number': 'number',
-  'import-jsdwa': 'importJSDWA',
+  'import-jsda': 'importJSDA',
   'import-md': 'importMd',
 });
 

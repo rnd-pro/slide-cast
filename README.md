@@ -42,20 +42,20 @@ Perfect for text-heavy presentations:
 <common-toolbar></common-toolbar>
 ```
 
-### 💻 Method 2: Using JSDWA Files
+### 💻 Method 2: Using JSDA Files
 
 For more advanced, interactive content:
 
 ```html
-<slide-it caption="Interactive Demo" import-jsdwa="/slides/demo.html.js"></slide-it>
-<slide-it caption="Live Charts" import-jsdwa="/slides/charts.html.js"></slide-it>
-<slide-it caption="Thank You!" import-jsdwa="/slides/outro.html.js"></slide-it>
+<slide-it caption="Interactive Demo" import-jsda="/slides/demo.html.js"></slide-it>
+<slide-it caption="Live Charts" import-jsda="/slides/charts.html.js"></slide-it>
+<slide-it caption="Thank You!" import-jsda="/slides/outro.html.js"></slide-it>
 <video-spot></video-spot>
 <common-toolbar></common-toolbar>
 ```
 
-> **What's JSDWA?** 🤔  
-> JSDWA (JavaScript Distributed Web Assets) are simple JavaScript modules that export web content as strings. Think of them as reusable components for HTML, CSS, SVG, or any text-based web content!
+> **What's JSDA?** 🤔  
+> [JSDA](https://github.com/rnd-pro/jsda) (JavaScript Distributed Assets) are simple JavaScript modules that export web content as strings. Think of them as reusable components for HTML, CSS, SVG, or any text-based web content!
 
 ### ⚡ Method 3: Auto-Generate from Markdown
 
@@ -97,7 +97,7 @@ Creates individual slides in your presentation.
 **Attributes:**
 - `caption` - The title shown in your slide navigation
 - `import-md` - Path to a Markdown file containing slide content
-- `import-jsdwa` - Path to a JavaScript module exporting slide content
+- `import-jsda` - Path to a JavaScript module exporting slide content
 - `slide-number` - Manual slide number setting (can be empty)
 - `hide-video-spot` - Hides Video Spot circle when certain slide is in focus
 
